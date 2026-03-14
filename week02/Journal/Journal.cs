@@ -8,7 +8,8 @@ public class Journal
         _entries.Add(newEntry);
     }
     public void DisplayAll()
-    {
+    {   
+        Console.WriteLine(_entries.Count);
         foreach (Entry entry in _entries)
         {
             entry.Display();
