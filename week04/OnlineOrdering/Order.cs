@@ -9,4 +9,47 @@ public class Order
         _customer = customer;  
         
     }
+
+    public void AddProduct(Product product)
+    {
+        _products.Add(product);
+    }
+
+    public float GetTotalCost()
+    {
+        float total = 0;
+
+        foreach (Product p in _products)
+        {
+            total+= p.GetTotalCost();
+        }
+
+        if (_customer.LivesInUSA())
+        {
+            total +=5;
+        }
+        else
+        {
+            total +=35;
+        }
+
+        return total;
+    }
+
+    public string GetPackingLabel()
+    {
+        string result = "";
+
+        foreach (Product p in _products)
+        {
+            result += p.GetPackingInfo() + "\n";
+        }
+
+        return result;
+    }
+
+    public string GetShippingLabel()
+    {
+        return _customer.GetName() + "\n" + _customer.GetAddress();
+    }
 }
