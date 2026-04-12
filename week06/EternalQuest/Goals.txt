@@ -1,0 +1,2 @@
+0
+SimpleGoal|Read scripture|read scripture every day|10|False
